@@ -5,10 +5,14 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <RigNav
+    bitsEnabled={true}
     configHandler={[Function]}
     error=""
     liveConfigHandler={[Function]}
+    login={Object {}}
+    loginHandler={[Function]}
     openConfigurationsHandler={[Function]}
+    openProductManagementHandler={[Function]}
     selectedView="Extension Views"
     viewerHandler={[Function]}
 />,
@@ -49,6 +53,15 @@ ShallowWrapper {
 >
           Configurations
 </a>,
+        <a
+          className="top-nav-item"
+          onClick={[Function]}
+>
+          Manage Products
+</a>,
+        <LoginButton
+          loginHandler={[Function]}
+/>,
       ],
       "className": "top-nav",
     },
@@ -106,6 +119,30 @@ ShallowWrapper {
         "rendered": "Configurations",
         "type": "a",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Manage Products",
+          "className": "top-nav-item",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Manage Products",
+        "type": "a",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "loginHandler": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -140,6 +177,15 @@ ShallowWrapper {
 >
             Configurations
 </a>,
+          <a
+            className="top-nav-item"
+            onClick={[Function]}
+>
+            Manage Products
+</a>,
+          <LoginButton
+            loginHandler={[Function]}
+/>,
         ],
         "className": "top-nav",
       },
@@ -196,6 +242,30 @@ ShallowWrapper {
           "ref": null,
           "rendered": "Configurations",
           "type": "a",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Manage Products",
+            "className": "top-nav-item",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Manage Products",
+          "type": "a",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "loginHandler": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
       ],
       "type": "div",

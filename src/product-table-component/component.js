@@ -1,113 +1,155 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './component.sass';
 import { ProductRow } from './product-row';
+import { fetchProducts, saveProduct } from '../util/api';
 
 export class ProductTable extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: [
-        {"sku": "test1", "cost": {"amount": 1, "type": "bits"}, "inDevelopment": "false", "displayName": "Test 1"},
-        {"sku": "test2", "cost": {"amount": 4, "type": "bits"}, "inDevelopment": "true", "displayName": "Test 1", "broadcast": "true"},
-        {"sku": "test3", "cost": {"amount": 5000, "type": "bits"}, "inDevelopment": "true", "displayName": "Test 1", "broadcast": "true"},
-        {"sku": "test4", "cost": {"amount": 1, "type": "bits"}, "displayName": "Test 1"}
-      ]
+      products: [{
+        sku: '',
+        amount: 1,
+        inDevelopment: 'true',
+        displayName: '',
+        broadcast: 'true'
+      }],
+      error: ''
     };
   }
 
-  handleDisplayNameChange(index, event) {
-    let value = event.target.value;
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = products[index];
-      product['displayName'] = value;
-      return {products: products};
-    });
+  componentDidMount() {
+    fetchProducts(
+      'api.twitch.tv',
+      this.props.clientId,
+      this._handleFetchProductsSuccess.bind(this),
+      this._handleFetchProductsError.bind(this)
+    );
   }
 
-  handleSkuChange(index, event) {
-    let value = event.target.value;
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = products[index];
-      product['sku'] = value;
-      return {products: products};
-    });
-  }
-
-  handleAmountChange(index, event) {
-    let value = event.target.value;
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = products[index];
-      product['cost']['amount'] = value;
-      return {products: products};
-    });
-  }
-
-  handleInDevelopmentChange(index, event) {
-    let value = event.target.value;
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = products[index];
-      product['inDevelopment'] = value;
-      return {products: products};
-    });
-  }
-
-  handleBroadcastChange(index, event) {
-    let value = event.target.value;
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = products[index];
-      product['broadcast'] = value;
-      return {products: products};
-    });
+  handleValueChange(index, event) {
+    const value = event.target.value;
+    const fieldName = event.target.name;
+    const partial = {
+      [fieldName]: value,
+      dirty: true
+    };
+    this._updateProduct(index, partial);
   }
 
   handleAddProductClick(event) {
-    this.setState((prevState, props) => {
-      let products = [...prevState['products']];
-      let product = {
-        "sku": "",
-        "cost": {"amount": 1, "type": "bits"},
-        "inDevelopment": "true",
-        "displayName": "",
-        "broadcast": "true"
+    this.setState(prevState => {
+      const products = [...prevState['products']];
+      const product = {
+        sku: '',
+        amount: 1,
+        inDevelopment: 'true',
+        displayName: '',
+        broadcast: 'true',
+        dirty: true
       };
       products.push(product)
-      return {products: products};
+      return { products: products };
+    });
+  }
+
+  handleSaveProductsClick(event) {
+    const dirtyProducts = this.state.products.map((p, i) => {
+      if (p.dirty) {
+        p.saving = true
+        saveProduct(
+          'api.twitch.tv',
+          this.props.clientId,
+          this.props.token,
+          p,
+          this._handleSaveProductSuccess.bind(this, i),
+          this._handleSaveProductError.bind(this, i)
+        );
+      }
+      return p;
+    });
+    this.setState({
+      products: dirtyProducts
     });
   }
 
   render() {
-    let productRows = this.state.products.map((p, i) => {
+    const productRows = this.state.products.map((p, i) => {
       return (
-        <ProductRow key={i} product={p}
-          handleDisplayNameChange={this.handleDisplayNameChange.bind(this, i)}
-          handleSkuChange={this.handleSkuChange.bind(this, i)}
-          handleAmountChange={this.handleAmountChange.bind(this, i)}
-          handleInDevelopmentChange={this.handleInDevelopmentChange.bind(this, i)}
-          handleBroadcastChange={this.handleBroadcastChange.bind(this, i)}
-        />
+        <ProductRow key={i} product={p} handleValueChange={this.handleValueChange.bind(this, i)} />
       );
     });
 
     return (
       <div className="product-table">
+        {this.state.error &&
+          <div className="product-table__error">
+            <h4>Error getting products.</h4>
+            <p>{this.state.error}</p>
+          </div>
+        }
         <div className="product-table__header">
-          <div className="text">Product Name</div>
-          <div className="text">SKU</div>
-          <div className="text">Amount (in Bits)</div>
-          <div className="select">In Development</div>
-          <div className="select">Broadcast</div>
+          <div className="text-col">Product Name</div>
+          <div className="text-col">SKU</div>
+          <div className="text-col">Amount (in Bits)</div>
+          <div className="select-col">In Development</div>
+          <div className="select-col">Broadcast</div>
+          <div className="dirty-col"></div>
         </div>
         {productRows}
-        <button className="add-product-btn" onClick={this.handleAddProductClick.bind(this)}>
-          Add Product
-        </button>
+        <div className="product-table__buttons">
+          <button className="product-table__add-button" onClick={this.handleAddProductClick.bind(this)}>
+            Add Product
+          </button>
+          <button className="product-table__save-button" onClick={this.handleSaveProductsClick.bind(this)}>
+            Save All
+          </button>
+        </div>
       </div>
     );
   }
+
+  _updateProduct(index, partial) {
+    this.setState(prevState => {
+      const products = prevState.products.map((product, idx) => {
+        if (idx === index) {
+           return {
+              ...product,
+              ...partial
+           };
+        }
+        return product;
+     });
+     return { products: products };
+    });
+  }
+
+  _handleFetchProductsSuccess(products) {
+    this.setState({ products: products });
+  }
+
+  _handleFetchProductsError(error) {
+    this.setState({ error: error });
+  }
+
+  _handleSaveProductSuccess(index) {
+    const partial = {
+      dirty: false
+    };
+    this._updateProduct(index, partial);
+  }
+
+  _handleSaveProductError(index, error) {
+    const partial = {
+      error: error
+    };
+    this._updateProduct(index, partial);
+  }
+}
+
+ProductTable.propTypes = {
+  clientId: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired
 }

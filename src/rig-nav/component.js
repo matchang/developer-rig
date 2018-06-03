@@ -32,9 +32,11 @@ export class RigNav extends Component {
           <a
             className={this.props.selectedView === CONFIGURATIONS ? "top-nav-item top-nav-item__selected" : "top-nav-item"}
             onClick={this.openConfigurationsHandler}>Configurations</a>
-          <a
-            className={this.props.selectedView === PRODUCT_MANAGEMENT ? "top-nav-item top-nav-item__selected" : "top-nav-item"}
-            onClick={this.props.openProductManagementHandler}>Manage Products</a>
+          {this.props.bitsEnabled && 
+            <a
+              className={this.props.selectedView === PRODUCT_MANAGEMENT ? "top-nav-item top-nav-item__selected" : "top-nav-item"}
+              onClick={this.props.openProductManagementHandler}>Manage Products</a>
+          }
           {this.props.login.login ? <UserDropdown login={this.props.login} /> : <LoginButton loginHandler={this.props.loginHandler}/>}
         </div>
       );
@@ -51,4 +53,5 @@ RigNav.propTypes = {
   selectedView: PropTypes.string,
   error: PropTypes.string,
   login: PropTypes.object,
+  bitsEnabled: PropTypes.bool
 };

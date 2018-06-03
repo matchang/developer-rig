@@ -1,10 +1,14 @@
 import { setupShallowTest } from '../tests/enzyme-util/shallow';
 import { RigNav } from './component';
-import { EXTENSION_VIEWS, BROADCASTER_CONFIG, LIVE_CONFIG, CONFIGURATIONS  } from '../constants/nav-items';
+import { EXTENSION_VIEWS, BROADCASTER_CONFIG, LIVE_CONFIG, CONFIGURATIONS, PRODUCT_MANAGEMENT } from '../constants/nav-items';
 
 describe('<RigNav />', () => {
   const setupShallow = setupShallowTest(RigNav, () => ({
+    login: {},
+    loginHandler: jest.fn(),
+    bitsEnabled: true,
     openConfigurationsHandler: jest.fn(),
+    openProductManagementHandler: jest.fn(),
     viewerHandler: jest.fn(),
     configHandler: jest.fn(),
     liveConfigHandler: jest.fn(),
@@ -33,6 +37,7 @@ describe('<RigNav />', () => {
     expect(wrapper.instance().props.configHandler).toHaveBeenCalled();
     expect(wrapper.instance().props.liveConfigHandler).toHaveBeenCalled();
     expect(wrapper.instance().props.openConfigurationsHandler).toHaveBeenCalled();
+    expect(wrapper.instance().props.openProductManagementHandler).toHaveBeenCalled();
   });
 
   it('correct css classes are set when things are selected', () => {
@@ -58,5 +63,18 @@ describe('<RigNav />', () => {
     });
     wrapper.update();
     expect(wrapper.find('.top-nav-item__selected')).toHaveLength(1);
+
+    wrapper.setProps({
+      selectedView: PRODUCT_MANAGEMENT,
+    });
+    wrapper.update();
+    expect(wrapper.find('.top-nav-item__selected')).toHaveLength(1);
+  });
+
+  it('correctly hides the Product Management tab when extension is bits enabled', () => {
+    const { wrapper } = setupShallow({
+      bitsEnabled: false
+    });
+    expect(wrapper.findWhere(el => el.text() === 'Manage Products').exists()).toBe(false);
   })
 });
