@@ -49,7 +49,8 @@ export class ProductTable extends Component {
         amount: 1,
         inDevelopment: 'true',
         broadcast: 'true',
-        dirty: true
+        dirty: true,
+        validationErrors: {}
       };
       products.push(product)
       return { products: products };
