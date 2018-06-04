@@ -1,5 +1,11 @@
-import { convertViews, fetchManifest, fetchExtensionManifest } from './api';
-import { mockFetchError, mockFetchErrorForManifest, mockFetchForExtensionManifest, mockFetchForManifest } from '../tests/mocks';
+import { convertViews, fetchManifest, fetchExtensionManifest, fetchProducts } from './api';
+import { 
+  mockFetchError,
+  mockFetchErrorForManifest,
+  mockFetchForExtensionManifest, 
+  mockFetchForManifest,
+  mockFetchProducts
+} from '../tests/mocks';
 
 describe('api', () => {
   describe('fetchManifest', () => {
@@ -8,7 +14,7 @@ describe('api', () => {
     });
 
     it('should return data', async function () {
-      await fetchManifest("127.0.0.1:8080", "clientId", 'username', 'version', 'channelId', 'secret', data => {
+      await fetchManifest('127.0.0.1:8080', 'clientId', 'username', 'version', 'channelId', 'secret', data => {
         expect(data).toBeDefined();
       }, jest.fn());
     });
@@ -16,7 +22,7 @@ describe('api', () => {
     it('on error should be fired ', async function () {
       const onError = jest.fn();
       global.fetch = jest.fn().mockImplementation(mockFetchError);
-      await fetchManifest("127.0.0.1:8080", "clientId", '', '', '', '', data => {
+      await fetchManifest('127.0.0.1:8080', 'clientId', '', '', '', '', data => {
         expect(data).toBeDefined();
       }, onError);
       expect(onError).toHaveBeenCalled();
@@ -29,7 +35,7 @@ describe('api', () => {
     });
 
     it('should return data', async function () {
-      await fetchExtensionManifest("127.0.0.1:8080", "clientId", "version", "jwt", (data) => {
+      await fetchExtensionManifest('127.0.0.1:8080', 'clientId', 'version', 'jwt', (data) => {
         expect(data).toBeDefined();
       });
     });
@@ -37,7 +43,7 @@ describe('api', () => {
     it('should error out if data missing', async function () {
       global.fetch = jest.fn().mockImplementation(mockFetchError);
       const onError = jest.fn();
-      await fetchExtensionManifest("127.0.0.1:8080", "clientId", "version", "jwt", jest.fn(), onError);
+      await fetchExtensionManifest('127.0.0.1:8080', 'clientId', 'version', 'jwt', jest.fn(), onError);
       expect(onError).toHaveBeenCalled();
     });
   });
@@ -68,6 +74,33 @@ describe('api', () => {
       expect(results.videoOverlay.viewerUrl).toBe('test');
       expect(results.panel.viewerUrl).toBe('test');
       expect(results.hidden.viewerUrl).toBe('test');
+    });
+  });
+
+  describe('fetchProducts', () => {
+    beforeEach(function() {
+      global.fetch = jest.fn().mockImplementation(mockFetchProducts);
+    });
+
+    it('should return products', async function () {
+      await fetchProducts('127.0.0.1:8080', 'clientId', (products) => {
+        expect(products).toBeDefined();
+      }, jest.fn());
+    });
+
+    it('should serialize products correctly', async function () {
+      await fetchProducts('127.0.0.1:8080', 'clientId', (products) => {
+        expect(products).toHaveLength(2);
+        products.forEach(product => {
+          expect(product).toMatchObject({
+            sku: expect.any(String),
+            displayName: expect.any(String),
+            amount: expect.stringMatching(/[1-9]\d*/),
+            inDevelopment: expect.stringMatching(/true|false/),
+            broadcast: expect.stringMatching(/true|false/)
+          });
+        });
+      }, jest.fn());
     });
   });
 });

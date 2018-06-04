@@ -35,7 +35,7 @@ export function mockFetchForExtensionManifest() {
           extensions: [
             {
               version: 1,
-              id: "clientid",
+              id: 'clientid',
               views: {}
             }
           ]
@@ -50,6 +50,36 @@ export function mockFetchError() {
   var p = new Promise((resolve, reject) => {
     resolve({
       ok: false,
+    });
+  });
+  return p;
+}
+
+export function mockFetchProducts() {
+  const p = new Promise((resolve, reject) => {
+    resolve({
+      json: function () {
+        return {
+          products: [
+            {
+              domain: 'twitch.ext.mock',
+              sku: 'test1',
+              displayName: 'Test 1',
+              cost: {amount: 1, type: 'bits'},
+              inDevelopment: true,
+              broadcast: false
+            },
+            {
+              domain: 'twitch.ext.mock',
+              sku: 'test2',
+              displayName: 'Test 2',
+              cost: {amount: 100, type: 'bits'},
+              inDevelopment: false,
+              broadcast: false
+            }
+          ]
+        };
+      }
     });
   });
   return p;

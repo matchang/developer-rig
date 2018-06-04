@@ -10,11 +10,12 @@ export class ProductTable extends Component {
 
     this.state = {
       products: [{
+        displayName: '',
         sku: '',
         amount: 1,
         inDevelopment: 'true',
-        displayName: '',
-        broadcast: 'true'
+        broadcast: 'true',
+        validationErrors: {}
       }],
       error: ''
     };
@@ -43,10 +44,10 @@ export class ProductTable extends Component {
     this.setState(prevState => {
       const products = [...prevState['products']];
       const product = {
-        sku: '',
+        displayName: 'New Product',
+        sku: 'newSKU',
         amount: 1,
         inDevelopment: 'true',
-        displayName: '',
         broadcast: 'true',
         dirty: true
       };
@@ -76,7 +77,22 @@ export class ProductTable extends Component {
   }
 
   render() {
+    let disableSaveButton = false;
+    const skus = this.state.products.map(p => p.sku);
+
     const productRows = this.state.products.map((p, i) => {
+      if (p.validationErrors && Object.keys(p.validationErrors).length > 0) {
+        disableSaveButton = true;
+      }
+
+      const matchingSkus = skus.filter(sku => sku === p.sku);
+      if (matchingSkus.length > 1) {
+        p.validationErrors = {
+          ...p.validationErrors,
+          sku: 'SKU must be unique'
+        }
+      }
+
       return (
         <ProductRow key={i} product={p} handleValueChange={this.handleValueChange.bind(this, i)} />
       );
@@ -103,7 +119,9 @@ export class ProductTable extends Component {
           <button className="product-table__add-button" onClick={this.handleAddProductClick.bind(this)}>
             Add Product
           </button>
-          <button className="product-table__save-button" onClick={this.handleSaveProductsClick.bind(this)}>
+          <button className="product-table__save-button"
+              onClick={this.handleSaveProductsClick.bind(this)}
+              disabled={disableSaveButton}>
             Save All
           </button>
         </div>
@@ -115,15 +133,43 @@ export class ProductTable extends Component {
     this.setState(prevState => {
       const products = prevState.products.map((product, idx) => {
         if (idx === index) {
-           return {
-              ...product,
-              ...partial
-           };
+          let newProduct = {
+            ...product,
+            ...partial
+          };
+          newProduct.validationErrors = this._validateProduct(newProduct);
+          return newProduct;
         }
         return product;
      });
      return { products: products };
     });
+  }
+
+  _validateProduct(product) {
+    let validationErrors = {};
+
+    if (!product.displayName) {
+      validationErrors.displayName = 'Name must not be empty';
+    } else if (product.displayName.length > 255) {
+      validationErrors.displayName = 'Name must be less than 256 characters';
+    }
+
+    if (!product.sku) {
+      validationErrors.sku = 'SKU must not be empty'
+    } else if (product.sku.search(/^\S*$/)) {
+      validationErrors.sku = 'SKU must not contain any whitespace'
+    } else if (product.sku.length > 255) {
+      validationErrors.sku = 'SKU must be less than 256 characters';
+    }
+
+    if (!product.amount) {
+      validationErrors.amount = 'Amount must not be empty'
+    } else if (product.amount < 1 || product.amount > 10000) {
+      validationErrors.amount = 'Amount must be between 1 and 10,000'
+    }
+
+    return validationErrors;
   }
 
   _handleFetchProductsSuccess(products) {
