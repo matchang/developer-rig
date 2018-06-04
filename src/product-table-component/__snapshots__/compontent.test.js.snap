@@ -1,0 +1,1425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductRow /> renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    product={
+        Object {
+            "amount": "1",
+            "broadcast": "false",
+            "displayName": "Test 1",
+            "inDevelopment": "true",
+            "sku": "test1",
+            "validationErrors": Object {},
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    maxLength="255"
+                    name="displayName"
+                    onChange={undefined}
+                    required={true}
+                    type="text"
+                    value="Test 1"
+          />
+</div>,
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    maxLength="255"
+                    name="sku"
+                    onChange={undefined}
+                    required={true}
+                    type="text"
+                    value="test1"
+          />
+</div>,
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    max="10000"
+                    min="1"
+                    name="amount"
+                    onChange={undefined}
+                    required={true}
+                    type="number"
+                    value="1"
+          />
+</div>,
+        <div
+          className="select-col"
+>
+          <select
+                    className="form__input"
+                    name="inDevelopment"
+                    onChange={undefined}
+                    value="true"
+          >
+                    <option
+                              value="true"
+                    >
+                              Yes
+                    </option>
+                    <option
+                              value="false"
+                    >
+                              No
+                    </option>
+          </select>
+</div>,
+        <div
+          className="select-col"
+>
+          <select
+                    className="form__input"
+                    name="broadcast"
+                    onChange={undefined}
+                    value="false"
+          >
+                    <option
+                              value="true"
+                    >
+                              Yes
+                    </option>
+                    <option
+                              value="false"
+                    >
+                              No
+                    </option>
+          </select>
+</div>,
+        <div
+          className="dirty-col"
+>
+          
+</div>,
+      ],
+      "className": "product-table__row",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              maxLength="255"
+              name="displayName"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value="Test 1"
+/>,
+            false,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "maxLength": "255",
+              "name": "displayName",
+              "onChange": undefined,
+              "required": true,
+              "type": "text",
+              "value": "Test 1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              maxLength="255"
+              name="sku"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value="test1"
+/>,
+            false,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "maxLength": "255",
+              "name": "sku",
+              "onChange": undefined,
+              "required": true,
+              "type": "text",
+              "value": "test1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              max="10000"
+              min="1"
+              name="amount"
+              onChange={undefined}
+              required={true}
+              type="number"
+              value="1"
+/>,
+            false,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "max": "10000",
+              "min": "1",
+              "name": "amount",
+              "onChange": undefined,
+              "required": true,
+              "type": "number",
+              "value": "1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <select
+              className="form__input"
+              name="inDevelopment"
+              onChange={undefined}
+              value="true"
+>
+              <option
+                            value="true"
+              >
+                            Yes
+              </option>
+              <option
+                            value="false"
+              >
+                            No
+              </option>
+</select>,
+            false,
+          ],
+          "className": "select-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <option
+                  value="true"
+>
+                  Yes
+</option>,
+                <option
+                  value="false"
+>
+                  No
+</option>,
+              ],
+              "className": "form__input",
+              "name": "inDevelopment",
+              "onChange": undefined,
+              "value": "true",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Yes",
+                  "value": "true",
+                },
+                "ref": null,
+                "rendered": "Yes",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "No",
+                  "value": "false",
+                },
+                "ref": null,
+                "rendered": "No",
+                "type": "option",
+              },
+            ],
+            "type": "select",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <select
+              className="form__input"
+              name="broadcast"
+              onChange={undefined}
+              value="false"
+>
+              <option
+                            value="true"
+              >
+                            Yes
+              </option>
+              <option
+                            value="false"
+              >
+                            No
+              </option>
+</select>,
+            false,
+          ],
+          "className": "select-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <option
+                  value="true"
+>
+                  Yes
+</option>,
+                <option
+                  value="false"
+>
+                  No
+</option>,
+              ],
+              "className": "form__input",
+              "name": "broadcast",
+              "onChange": undefined,
+              "value": "false",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Yes",
+                  "value": "true",
+                },
+                "ref": null,
+                "rendered": "Yes",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "No",
+                  "value": "false",
+                },
+                "ref": null,
+                "rendered": "No",
+                "type": "option",
+              },
+            ],
+            "type": "select",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            false,
+          ],
+          "className": "dirty-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        maxLength="255"
+                        name="displayName"
+                        onChange={undefined}
+                        required={true}
+                        type="text"
+                        value="Test 1"
+            />
+</div>,
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        maxLength="255"
+                        name="sku"
+                        onChange={undefined}
+                        required={true}
+                        type="text"
+                        value="test1"
+            />
+</div>,
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        max="10000"
+                        min="1"
+                        name="amount"
+                        onChange={undefined}
+                        required={true}
+                        type="number"
+                        value="1"
+            />
+</div>,
+          <div
+            className="select-col"
+>
+            <select
+                        className="form__input"
+                        name="inDevelopment"
+                        onChange={undefined}
+                        value="true"
+            >
+                        <option
+                                    value="true"
+                        >
+                                    Yes
+                        </option>
+                        <option
+                                    value="false"
+                        >
+                                    No
+                        </option>
+            </select>
+</div>,
+          <div
+            className="select-col"
+>
+            <select
+                        className="form__input"
+                        name="broadcast"
+                        onChange={undefined}
+                        value="false"
+            >
+                        <option
+                                    value="true"
+                        >
+                                    Yes
+                        </option>
+                        <option
+                                    value="false"
+                        >
+                                    No
+                        </option>
+            </select>
+</div>,
+          <div
+            className="dirty-col"
+>
+            
+</div>,
+        ],
+        "className": "product-table__row",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                maxLength="255"
+                name="displayName"
+                onChange={undefined}
+                required={true}
+                type="text"
+                value="Test 1"
+/>,
+              false,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "maxLength": "255",
+                "name": "displayName",
+                "onChange": undefined,
+                "required": true,
+                "type": "text",
+                "value": "Test 1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                maxLength="255"
+                name="sku"
+                onChange={undefined}
+                required={true}
+                type="text"
+                value="test1"
+/>,
+              false,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "maxLength": "255",
+                "name": "sku",
+                "onChange": undefined,
+                "required": true,
+                "type": "text",
+                "value": "test1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                max="10000"
+                min="1"
+                name="amount"
+                onChange={undefined}
+                required={true}
+                type="number"
+                value="1"
+/>,
+              false,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "max": "10000",
+                "min": "1",
+                "name": "amount",
+                "onChange": undefined,
+                "required": true,
+                "type": "number",
+                "value": "1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <select
+                className="form__input"
+                name="inDevelopment"
+                onChange={undefined}
+                value="true"
+>
+                <option
+                                value="true"
+                >
+                                Yes
+                </option>
+                <option
+                                value="false"
+                >
+                                No
+                </option>
+</select>,
+              false,
+            ],
+            "className": "select-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    value="true"
+>
+                    Yes
+</option>,
+                  <option
+                    value="false"
+>
+                    No
+</option>,
+                ],
+                "className": "form__input",
+                "name": "inDevelopment",
+                "onChange": undefined,
+                "value": "true",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Yes",
+                    "value": "true",
+                  },
+                  "ref": null,
+                  "rendered": "Yes",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No",
+                    "value": "false",
+                  },
+                  "ref": null,
+                  "rendered": "No",
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <select
+                className="form__input"
+                name="broadcast"
+                onChange={undefined}
+                value="false"
+>
+                <option
+                                value="true"
+                >
+                                Yes
+                </option>
+                <option
+                                value="false"
+                >
+                                No
+                </option>
+</select>,
+              false,
+            ],
+            "className": "select-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    value="true"
+>
+                    Yes
+</option>,
+                  <option
+                    value="false"
+>
+                    No
+</option>,
+                ],
+                "className": "form__input",
+                "name": "broadcast",
+                "onChange": undefined,
+                "value": "false",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Yes",
+                    "value": "true",
+                  },
+                  "ref": null,
+                  "rendered": "Yes",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No",
+                    "value": "false",
+                  },
+                  "ref": null,
+                  "rendered": "No",
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+              false,
+            ],
+            "className": "dirty-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+            false,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`<ProductTable /> renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProductTable
+    clientId="client-id"
+    token="token"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "",
+        <div
+          className="product-table__header"
+>
+          <div
+                    className="text-col"
+          >
+                    Product Name
+          </div>
+          <div
+                    className="text-col"
+          >
+                    SKU
+          </div>
+          <div
+                    className="text-col"
+          >
+                    Amount (in Bits)
+          </div>
+          <div
+                    className="select-col"
+          >
+                    In Development
+          </div>
+          <div
+                    className="select-col"
+          >
+                    Broadcast
+          </div>
+          <div
+                    className="dirty-col"
+          />
+</div>,
+        Array [
+          <Unknown
+            handleValueChange={[Function]}
+            product={
+                        Object {
+                                    "amount": "1",
+                                    "broadcast": "true",
+                                    "displayName": "",
+                                    "inDevelopment": "true",
+                                    "sku": "",
+                                    "validationErrors": Object {},
+                                  }
+            }
+/>,
+        ],
+        <div
+          className="product-table__buttons"
+>
+          <button
+                    className="product-table__add-button"
+                    onClick={[Function]}
+          >
+                    Add Product
+          </button>
+          <button
+                    className="product-table__save-button"
+                    disabled={false}
+                    onClick={[Function]}
+          >
+                    Save All
+          </button>
+</div>,
+      ],
+      "className": "product-table",
+    },
+    "ref": null,
+    "rendered": Array [
+      "",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="text-col"
+>
+              Product Name
+</div>,
+            <div
+              className="text-col"
+>
+              SKU
+</div>,
+            <div
+              className="text-col"
+>
+              Amount (in Bits)
+</div>,
+            <div
+              className="select-col"
+>
+              In Development
+</div>,
+            <div
+              className="select-col"
+>
+              Broadcast
+</div>,
+            <div
+              className="dirty-col"
+/>,
+          ],
+          "className": "product-table__header",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Product Name",
+              "className": "text-col",
+            },
+            "ref": null,
+            "rendered": "Product Name",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "SKU",
+              "className": "text-col",
+            },
+            "ref": null,
+            "rendered": "SKU",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Amount (in Bits)",
+              "className": "text-col",
+            },
+            "ref": null,
+            "rendered": "Amount (in Bits)",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "In Development",
+              "className": "select-col",
+            },
+            "ref": null,
+            "rendered": "In Development",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Broadcast",
+              "className": "select-col",
+            },
+            "ref": null,
+            "rendered": "Broadcast",
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "dirty-col",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "handleValueChange": [Function],
+          "product": Object {
+            "amount": "1",
+            "broadcast": "true",
+            "displayName": "",
+            "inDevelopment": "true",
+            "sku": "",
+            "validationErrors": Object {},
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="product-table__add-button"
+              onClick={[Function]}
+>
+              Add Product
+</button>,
+            <button
+              className="product-table__save-button"
+              disabled={false}
+              onClick={[Function]}
+>
+              Save All
+</button>,
+          ],
+          "className": "product-table__buttons",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Add Product",
+              "className": "product-table__add-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Add Product",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Save All",
+              "className": "product-table__save-button",
+              "disabled": false,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Save All",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "",
+          <div
+            className="product-table__header"
+>
+            <div
+                        className="text-col"
+            >
+                        Product Name
+            </div>
+            <div
+                        className="text-col"
+            >
+                        SKU
+            </div>
+            <div
+                        className="text-col"
+            >
+                        Amount (in Bits)
+            </div>
+            <div
+                        className="select-col"
+            >
+                        In Development
+            </div>
+            <div
+                        className="select-col"
+            >
+                        Broadcast
+            </div>
+            <div
+                        className="dirty-col"
+            />
+</div>,
+          Array [
+            <Unknown
+              handleValueChange={[Function]}
+              product={
+                            Object {
+                                          "amount": "1",
+                                          "broadcast": "true",
+                                          "displayName": "",
+                                          "inDevelopment": "true",
+                                          "sku": "",
+                                          "validationErrors": Object {},
+                                        }
+              }
+/>,
+          ],
+          <div
+            className="product-table__buttons"
+>
+            <button
+                        className="product-table__add-button"
+                        onClick={[Function]}
+            >
+                        Add Product
+            </button>
+            <button
+                        className="product-table__save-button"
+                        disabled={false}
+                        onClick={[Function]}
+            >
+                        Save All
+            </button>
+</div>,
+        ],
+        "className": "product-table",
+      },
+      "ref": null,
+      "rendered": Array [
+        "",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="text-col"
+>
+                Product Name
+</div>,
+              <div
+                className="text-col"
+>
+                SKU
+</div>,
+              <div
+                className="text-col"
+>
+                Amount (in Bits)
+</div>,
+              <div
+                className="select-col"
+>
+                In Development
+</div>,
+              <div
+                className="select-col"
+>
+                Broadcast
+</div>,
+              <div
+                className="dirty-col"
+/>,
+            ],
+            "className": "product-table__header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Product Name",
+                "className": "text-col",
+              },
+              "ref": null,
+              "rendered": "Product Name",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "SKU",
+                "className": "text-col",
+              },
+              "ref": null,
+              "rendered": "SKU",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Amount (in Bits)",
+                "className": "text-col",
+              },
+              "ref": null,
+              "rendered": "Amount (in Bits)",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "In Development",
+                "className": "select-col",
+              },
+              "ref": null,
+              "rendered": "In Development",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Broadcast",
+                "className": "select-col",
+              },
+              "ref": null,
+              "rendered": "Broadcast",
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "dirty-col",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "handleValueChange": [Function],
+            "product": Object {
+              "amount": "1",
+              "broadcast": "true",
+              "displayName": "",
+              "inDevelopment": "true",
+              "sku": "",
+              "validationErrors": Object {},
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="product-table__add-button"
+                onClick={[Function]}
+>
+                Add Product
+</button>,
+              <button
+                className="product-table__save-button"
+                disabled={false}
+                onClick={[Function]}
+>
+                Save All
+</button>,
+            ],
+            "className": "product-table__buttons",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Add Product",
+                "className": "product-table__add-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Add Product",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Save All",
+                "className": "product-table__save-button",
+                "disabled": false,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Save All",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

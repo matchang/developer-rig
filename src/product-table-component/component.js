@@ -12,7 +12,7 @@ export class ProductTable extends Component {
       products: [{
         displayName: '',
         sku: '',
-        amount: 1,
+        amount: '1',
         inDevelopment: 'true',
         broadcast: 'true',
         validationErrors: {}
@@ -81,16 +81,18 @@ export class ProductTable extends Component {
     const skus = this.state.products.map(p => p.sku);
 
     const productRows = this.state.products.map((p, i) => {
-      if (p.validationErrors && Object.keys(p.validationErrors).length > 0) {
-        disableSaveButton = true;
-      }
-
       const matchingSkus = skus.filter(sku => sku === p.sku);
       if (matchingSkus.length > 1) {
         p.validationErrors = {
           ...p.validationErrors,
           sku: 'SKU must be unique'
         }
+      } else if (p.validationErrors.sku === 'SKU must be unique') {
+        delete p.validationErrors.sku;
+      }
+
+      if (p.validationErrors && Object.keys(p.validationErrors).length > 0) {
+        disableSaveButton = true;
       }
 
       return (
