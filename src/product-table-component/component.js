@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './component.sass';
 import { ProductRow } from './product-row';
 import { fetchProducts, saveProduct } from '../util/api';
+import * as ProductErrors from '../constants/product-errors';
 
 export class ProductTable extends Component {
   constructor(props) {
@@ -86,9 +87,9 @@ export class ProductTable extends Component {
       if (matchingSkus.length > 1) {
         p.validationErrors = {
           ...p.validationErrors,
-          sku: 'SKU must be unique'
+          sku: ProductErrors.SKU_UNIQUE
         }
-      } else if (p.validationErrors.sku === 'SKU must be unique') {
+      } else if (p.validationErrors.sku === ProductErrors.SKU_UNIQUE) {
         delete p.validationErrors.sku;
       }
 
@@ -153,23 +154,23 @@ export class ProductTable extends Component {
     let validationErrors = {};
 
     if (!product.displayName) {
-      validationErrors.displayName = 'Name must not be empty';
+      validationErrors.displayName = ProductErrors.NAME_EMPTY;
     } else if (product.displayName.length > 255) {
-      validationErrors.displayName = 'Name must be less than 256 characters';
+      validationErrors.displayName = ProductErrors.NAME_CHAR_LIMIT;
     }
 
     if (!product.sku) {
-      validationErrors.sku = 'SKU must not be empty'
+      validationErrors.sku = ProductErrors.SKU_EMPTY;
     } else if (product.sku.search(/^\S*$/)) {
-      validationErrors.sku = 'SKU must not contain any whitespace'
+      validationErrors.sku = ProductErrors.SKU_WHITESPACE;
     } else if (product.sku.length > 255) {
-      validationErrors.sku = 'SKU must be less than 256 characters';
+      validationErrors.sku = ProductErrors.SKU_CHAR_LIMIT;
     }
 
     if (!product.amount) {
-      validationErrors.amount = 'Amount must not be empty'
+      validationErrors.amount = ProductErrors.AMOUNT_EMPTY;
     } else if (product.amount < 1 || product.amount > 10000) {
-      validationErrors.amount = 'Amount must be between 1 and 10,000'
+      validationErrors.amount = ProductErrors.AMOUNT_OUT_OF_RANGE;
     }
 
     return validationErrors;
